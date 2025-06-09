@@ -6,15 +6,15 @@ const prisma = new PrismaClient();
 exports.login = async ({ email, password }) => {
   const user = await prisma.user.findUnique({ 
     where: { email },
-    include: {
-      patient: true,
-      doctor: true,
-      nurse: true,
-      labTechnician: true,
-      pharmacist: true,
-      financeStaff: true,
-      receptionist: true
-    }
+    // include: {
+    //   patient: true,
+    //   doctor: true,
+    //   nurse: true,
+    //   labTechnician: true,
+    //   pharmacist: true,
+    //   financeStaff: true,
+    //   receptionist: true
+    // }
   });
   if (!user) {
     throw new Error('User not found');
